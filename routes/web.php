@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('public.index');
+    return view('public.index-b');
+});
+
+Route::get('/test', function () {
+    return view('public.freq');
 });
