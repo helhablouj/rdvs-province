@@ -54,12 +54,16 @@
                 <div class="col-md-3 col-6">
                     <img class="Armoiries" src="{{ asset('daam-template/emblem-maroc.png')}}" alt="Armoiries">
                     <h1 class="mb-0">المملكة المغربية</h1>
-                    <h1>وزارة الداخلية - عمالة إقليم تارودانت</h1>
+                    <h1>وزارة الداخلية</h1>
+                    <!-- <h1>وزارة الداخلية - عمالة إقليم تارودانت</h1> -->
                 </div>
                 <!-- <div class="col-md-3 col-6 mobile"><img class="Carte" src="{{ asset('daam-template/carte.svg')}}" width="120" alt=""></div> -->
                 <div class="col-md-6">
-                    <h2>
-                        عمالة إقليم تارودانت - موقع حجز المواعيد الادارية للمرتفقين<br>
+                    <h2 >
+                        عمالة إقليم تارودانت
+                    </h2>
+                    <h2 class="mb-3">
+                        موقع حجز المواعيد الادارية للمرتفقين
                     </h2>
                 </div>
                 <!-- <div class="col-md-3 desktop">
