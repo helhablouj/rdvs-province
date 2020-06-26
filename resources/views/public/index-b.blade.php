@@ -72,7 +72,7 @@
 <div class="modal" tabindex="-1" role="dialog" id="wiqaytna" dir="ltr">
   <div class="modal-dialog " role="document"> <!-- modal-lg -->
     <div class="modal-content">
-      <div class="modal-header justify-content-end">
+      <div class="modal-header justify-content-center">
         <h5 class="modal-title ">استعمل وقايتنا وساعد في وقف انتشار الفيروس</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -94,7 +94,7 @@
               </div>
           </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-center">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
       </div>
     </div>
@@ -149,7 +149,7 @@
                                 <label for="objet">الموضوع<em class="text-danger"> *</em></label>
                                 <textarea type="text" class="form-control ToAR" id="objet" name="objet" required></textarea>
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-6 mb-3">
                                 <label for="entite">القسم/المصلحة<em class="text-danger"> *</em></label>
                                 <select type="text" class="form-control" id="entite" name="entite_id" required>
                                     <option value="" disabled selected>-المرجو اختيار القسم او المصلحة-</option>
@@ -189,7 +189,7 @@
     //     $('#myInput').trigger('focus')
     // });
 
-    // $('#wiqaytna').modal({backdrop: 'static', keyboard: false});
+    $('#wiqaytna').modal({backdrop: 'static', keyboard: false});
     
     $(function(){
         txtToAr();
