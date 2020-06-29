@@ -114,7 +114,7 @@
                 <h5 class="card-header bg-dark text-white text-right">
                     <i class="far fa-calendar-check"></i>
                     &nbsp;
-                    استمارة حجز  موعد بإحدى مصالح عمالة إقليم تارودانت
+                    المرجو التحقق من المعلومات التي ادخلتموها
                 </h5>
                 <div class="card-body text-right">
                     
@@ -129,7 +129,7 @@
                                 <input type="text" 
                                         class="form-control ToAR"
                                         data-parsley-error-message="المرجو ادخال الاسم الشخصي" 
-                                        data-parsley-minlength="3" data-parsley-minlength-message="المرجو ادخال اسم صحيح" 
+                                        data-parsley-minlength="3" data-parsley-minlength-message="المرجو ادخال اسم صحيح"
                                         id="prenom" name="prenom" required>
                             </div>
                             <div class="col-md-4 mb-3">

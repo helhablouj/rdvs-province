@@ -15,6 +15,7 @@ class CreateEntitesTable extends Migration
     {
         Schema::create('entites', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
             $table->timestamps();
         });
     }
