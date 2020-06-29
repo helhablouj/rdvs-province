@@ -7,24 +7,20 @@
     <meta name="author" content="وزارة الداخلية">
     <title>موقع عمالة تارودانت</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+        crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('bootstrap-theme/public-style.css') }}">
     
     <style>
         html{
-            /* min-height: 100% !important; */
             max-width: 100%;
-            /* overflow-x: hidden;
-            overflow-y: auto; */
         }
         html, body{
             overflow-x: hidden;
             overflow-y: auto;
         }
         body{
-            /* height: 100% !important; */
-            /* height: fit-content; */
-            /* padding-right: 0 !important; */
             width: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
@@ -35,9 +31,9 @@
         label {
             font-weight : bold;
         }
-        body.swal2-shown, body.modal-open {
-            /* padding-right: 0 !important; */
-        }
+        /* body.swal2-shown, body.modal-open {
+            padding-right: 0 !important; 
+        }*/
     </style>
     <link rel="stylesheet" href="{{ asset('fa/all.min.css')}}">
 </head>
