@@ -16,7 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PublicPagesController@index')->name('public.index');
 Route::post('/demander-rendez-vous', 'PublicPagesController@enregistrerRdvs')->name('public.demande-rdvs');
 
-
-Route::get('/test', function () {
-    return view('public.freq');
-});

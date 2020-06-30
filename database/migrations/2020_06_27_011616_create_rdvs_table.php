@@ -15,6 +15,12 @@ class CreateRdvsTable extends Migration
     {
         Schema::create('rdvs', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('cnie');
+            $table->string('tel');
+            $table->string('email');
+            $table->string('objet');
             $table->timestamps();
         });
     }
