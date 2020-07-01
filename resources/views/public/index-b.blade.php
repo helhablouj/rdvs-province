@@ -219,6 +219,7 @@
                                     <i class="fas fa-file-export"></i>
                                     &nbsp;
                                     إيداع طلب حجز الموعد
+                                    
                                 </button>
                                 
                         </div>
@@ -262,32 +263,39 @@
     $('#btn-demander-rdvs').on('click', function(){
 
         if ($("#form-demande-rdvs-citoyen").parsley().validate()) {
-            $("#card-header").html(`
-                <i class="fas fa-question-circle"></i>
-                &nbsp;
-                المرجو التحقق من المعلومات التي ادخلتموها
-            `);
-            $(this).addClass('d-none');
-            $("#btn-corriger-info").removeClass('d-none');
-            $("#valider-demande").removeClass('d-none');
-            $('span.data-shown').each((i, elt) => {
-                elt = $(elt);
-                elt.removeClass('d-none');
-                if(elt.prev().prev().prop("tagName") === "SELECT")
-                    elt.text(elt.prev().prev().find('option:selected').text());
-                else
-                    elt.text(elt.prev().prev().val());
+            
+            $(".parsley-errors-list").remove();
+            $(this).html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    المرجوالانتظار`);
 
-                // console.error("--------------------------------");
-                // console.log(elt.prev().prev().val());
-                
-            })
-            $('input[type=text], textarea, input[type=email], select').addClass('d-none');   
+            let menage = () => {
+                $("#card-header").html(`
+                    <i class="fas fa-question-circle"></i>
+                    &nbsp;
+                    المرجو التحقق من المعلومات التي ادخلتموها
+                `);
+                $('#btn-demander-rdvs').addClass('d-none');
+                $("#btn-corriger-info").removeClass('d-none');
+                $("#valider-demande").removeClass('d-none');
+                $('span.data-shown').each((i, span) => {
+                    formControl = $(span).parent().find('.form-control').first();
+                    $(span).removeClass('d-none');
+                    if(formControl.prop("tagName") === "SELECT")
+                        $(span).text(formControl.find('option:selected').text());
+                    else
+                        $(span).text(formControl.val());
+
+                })
+                $('input[type=text], textarea, input[type=email], select').addClass('d-none');   
+            }
+            
+            setTimeout(menage, 1000);
         }
         else{
             console.log('erreur de validation du formulaire');
         }
-    })
+
+    });
     
     $("#btn-corriger-info").on('click', () => {
         $("#card-header").html(`

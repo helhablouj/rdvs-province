@@ -21,7 +21,15 @@ class CreateRdvsTable extends Migration
             $table->string('tel');
             $table->string('email');
             $table->string('objet');
+
+            $table->timestamp('date_heure'); // date et heure attribuées
+
             $table->timestamps();
+
+            $table->unsignedBigInteger('entite_id');
+            $table->foreign('entite_id')
+                  ->references('id')->on('entites')
+                  ->onDelete('cascade');
         });
     }
 
