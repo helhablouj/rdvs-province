@@ -13,7 +13,8 @@ class PublicPagesController extends Controller
     //
     public function index()
     {
-        dd(Rdv::get_last_booked_rdvs());
+        $dd = Rdv::get_last_booked_rdvs();
+        dd($dd);
         return view('public.index-b', [
             'entites' => Entite::all(),
         ]);
@@ -22,12 +23,14 @@ class PublicPagesController extends Controller
     public function enregistrerRdvs(Request $request)
     {
         $data = $request->all();
-        $data['date_heure'] = \Carbon\Carbon::now();
+        $data['date_heure'] = Rdv::calculerRdvs($data['entite_id']);
+        unset($data['_token']);
         
-        $entite = Entite::findOrFail($data['entite_id']);
+        Rdv::insert($data);
+        // $entite = Entite::findOrFail($data['entite_id']);
         
-        $rdv = new Rdv($data);
-        $entite->rdvs()->save($rdv);
+        // $rdv = new Rdv($data);
+        // $entite->rdvs()->save($rdv);
 
         dd(Rdv::get_last_booked_rdvs());
         return redirect()->route('public.index');

@@ -15,11 +15,11 @@ class CreateRdvsTable extends Migration
     {
         Schema::create('rdvs', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('cnie');
-            $table->string('tel');
-            $table->string('email');
+            $table->string('nom', 60);
+            $table->string('prenom', 40);
+            $table->string('cnie', 8)->nullable();
+            $table->string('tel', 11)->nullable();
+            $table->string('email', 100)->nullable();
             $table->string('objet');
 
             $table->timestamp('date_heure'); // date et heure attribuées

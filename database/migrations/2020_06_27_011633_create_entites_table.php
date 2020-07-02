@@ -15,9 +15,9 @@ class CreateEntitesTable extends Migration
     {
         Schema::create('entites', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->integer('capacite'); // nombre de rendez vous simultanés
-            $table->integer('duree_rdvs'); // en minutes
+            $table->string('nom', 120);
+            $table->integer('capacite')->default(0); // nombre de rendez vous simultanés
+            $table->integer('duree_rdvs')->default(0); // en minutes
             $table->timestamps();
         });
     }
