@@ -13,8 +13,8 @@ class PublicPagesController extends Controller
     //
     public function index()
     {
-        $dd = Rdv::get_last_booked_rdvs();
-        dd($dd);
+        // $dd = Rdv::get_last_booked_rdvs();
+        // dd($dd);
         return view('public.index-b', [
             'entites' => Entite::all(),
         ]);

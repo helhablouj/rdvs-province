@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use \Carbon\Carbon as Carbon;
 
 class Rdv extends Model
 {
@@ -28,7 +29,7 @@ class Rdv extends Model
     {
         if(self::$last_booked_rdvs == null)
         {
-            self::$last_booked_rdvs = \DB::table('rdvs')->select('rdvs.entite_id', \DB::raw('MAX(date_heure) as date_heure'))
+            self::$last_booked_rdvs = \DB::table('rdvs')->select('rdvs.entite_id', \DB::raw('MAX(date_heure) as date_heure')) //\DB::raw('COUNT(date_heure) as nombre_rdvs')
                                                         ->groupBy('rdvs.entite_id')
                                                         ->get()
                                                         ->pluck('date_heure', 'entite_id')
@@ -40,24 +41,24 @@ class Rdv extends Model
 
     public static function calculerRdvs($entite_id)
     {
-        
-        // check the latest rendez vous for the entity
-        
-        $latest = array_key_exists($entite_id, self::get_last_booked_rdvs()) ? self::get_last_booked_rdvs()[$entite_id] : null;
-        
-        // if there is no rendez vous, give the first rendez vous an hour from now
-        
-        // else, first rendez vous slot after latest 
+        $date_heure;
+        $latest = Carbon::now();
+                                                                                                                          // Why 30 ? needs to be parametered
+        if(array_key_exists($entite_id, self::get_last_booked_rdvs()) && Carbon::parse(self::get_last_booked_rdvs()[$entite_id])->subMinutes(30)->isFuture())
+        {
+            // $date_heure = Carbon::parse(self::get_last_booked_rdvs()[$entite_id]);
+            if(EntityCapacityIsFull($entite_id))
+                $date_heure = calculateNextRdvSlot($entity_id);
+            else
+                $date_heure = Carbon::parse(self::get_last_booked_rdvs()[$entite_id]);
+        }
+         
         
         // now how to calculate slots 
         
-        $date_heure;
-        if($latest != null)
-            $date_heure = \Carbon\Carbon::parse($latest);
-        else
-            $date_heure = \Carbon\Carbon::now();
 
-        $date_heure->addMinutes(15);
+
+        // $date_heure->addMinutes(15);
         $date_heure->setTimezone('Africa/Casablanca');
         return $date_heure;
     }
